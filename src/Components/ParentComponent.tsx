@@ -10,11 +10,25 @@ const ChildComponentTwo = React.lazy(async () => {
     return import('./ChildComponentTwo');
 });
 
+/*
+    This is a React function component (https://reactjs.org/docs/components-and-props.html)
+*/
 function ParentComponent() {
 
+
+
+    // return statement is required
     return (
+
         <div>
-            <ChildComponentOne />
+            {/*
+                Props (properties) are inputs passed to components. You can name them whatever you want.
+            */}
+            <ChildComponentOne PropOne={"PropOne"} Number={1000} />
+            {/* 
+                You can wrap lazy loaded react component in the Suspense component
+                to handle what is displayed while the component is loading
+             */}
             <Suspense fallback={<div>Loading....</div>}>
                 <ChildComponentTwo />
             </Suspense>
